@@ -1,0 +1,95 @@
+{
+  "distinct_images_per_split": {
+    "Glioma": {
+      "test": 176,
+      "train": 822,
+      "val": 176
+    },
+    "Meningioma": {
+      "test": 162,
+      "train": 753,
+      "val": 162
+    },
+    "No Tumor": {
+      "test": 54,
+      "train": 250,
+      "val": 54
+    },
+    "Pituitary": {
+      "test": 153,
+      "train": 717,
+      "val": 153
+    }
+  },
+  "duplicates_thresholds": {
+    "corr_min": 0.99,
+    "ham_max": 20,
+    "mad_max": 2.0
+  },
+  "files_per_split": {
+    "Glioma": {
+      "excluded": 3,
+      "test": 187,
+      "train": 907,
+      "val": 192
+    },
+    "Meningioma": {
+      "excluded": 11,
+      "test": 250,
+      "train": 1099,
+      "val": 229
+    },
+    "No Tumor": {
+      "excluded": 0,
+      "test": 157,
+      "train": 561,
+      "val": 93
+    },
+    "Pituitary": {
+      "excluded": 1,
+      "test": 236,
+      "train": 1096,
+      "val": 227
+    }
+  },
+  "label_conflict_files": [
+    "data/raw/Train/Glioma/images/Te-gl_0043.jpg",
+    "data/raw/Train/Glioma/images/Tr-gl_1167.jpg",
+    "data/raw/Train/Glioma/images/gg (278).jpg",
+    "data/raw/Train/Meningioma/images/Tr-me_0023.jpg",
+    "data/raw/Train/Meningioma/images/Tr-me_0119.jpg",
+    "data/raw/Train/Meningioma/images/Tr-me_0385.jpg",
+    "data/raw/Train/Meningioma/images/m (49).jpg",
+    "data/raw/Train/Meningioma/images/m (50).jpg",
+    "data/raw/Train/Meningioma/images/m (51).jpg",
+    "data/raw/Train/Meningioma/images/m (52).jpg",
+    "data/raw/Train/Meningioma/images/m (53).jpg",
+    "data/raw/Train/Meningioma/images/m (54).jpg",
+    "data/raw/Train/Meningioma/images/m (55).jpg",
+    "data/raw/Train/Meningioma/images/m3 (120).jpg",
+    "data/raw/Train/Pituitary/images/p (564).jpg"
+  ],
+  "n_groups": 3642,
+  "n_images": 5249,
+  "orphan_image_files": [
+    "data/raw/Val/No Tumor/images/image(55).jpg",
+    "data/raw/Val/No Tumor/images/image(61).jpg"
+  ],
+  "orphan_label_files": [
+    "data/raw/Val/No Tumor/labels/image(53).txt",
+    "data/raw/Val/No Tumor/labels/image(60).txt"
+  ],
+  "seed": 42,
+  "split_ratios": {
+    "test": 0.15,
+    "train": 0.7,
+    "val": 0.15
+  },
+  "status": {
+    "label_conflict": 15,
+    "ok": 5232,
+    "orphan_image": 2
+  },
+  "use_for_classification": 5234,
+  "use_for_detection": 4422
+}
