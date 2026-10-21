@@ -1,0 +1,53 @@
+{
+  "val_accuracy": 0.7834862385321101,
+  "val_f1_macro": 0.7936653799056161,
+  "recall": {
+    "Glioma": 0.7613636363636364,
+    "Meningioma": 0.5987654320987654,
+    "No Tumor": 0.8703703703703703,
+    "Pituitary": 0.9738562091503268
+  },
+  "precision": {
+    "Glioma": 0.8701298701298701,
+    "Meningioma": 0.7578125,
+    "No Tumor": 0.8703703703703703,
+    "Pituitary": 0.7129186602870813
+  },
+  "f1": {
+    "Glioma": 0.8121212121212121,
+    "Meningioma": 0.6689655172413793,
+    "No Tumor": 0.8703703703703703,
+    "Pituitary": 0.8232044198895028
+  },
+  "confusion_matrix": [
+    [
+      134,
+      26,
+      0,
+      16
+    ],
+    [
+      17,
+      97,
+      6,
+      42
+    ],
+    [
+      2,
+      3,
+      47,
+      2
+    ],
+    [
+      1,
+      2,
+      1,
+      149
+    ]
+  ],
+  "plausibility_threshold": 0.65,
+  "above_threshold": true,
+  "best_epoch": 10,
+  "epochs_run": 15,
+  "best_val_loss": 0.5287036895751953
+}

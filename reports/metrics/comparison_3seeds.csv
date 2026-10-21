@@ -1,0 +1,8 @@
+config,graine,F1 macro,accuracy,rappel Glioma,rappel Meningioma,rappel No Tumor,rappel Pituitary,meilleure époque,époques,val_loss,écart acc. train-val,minutes
+A_base,42,0.794,0.783,0.76,0.6,0.87,0.97,10,15,0.529,0.062,2.4
+B_finetune,42,0.869,0.859,0.83,0.75,0.94,0.98,27,32,0.364,0.069,5.3
+C_finetune_reg,42,0.847,0.839,0.82,0.71,0.93,0.97,24,29,0.426,0.062,4.8
+B_finetune,7,0.868,0.864,0.88,0.73,0.93,0.97,21,26,0.354,0.041,4.4
+C_finetune_reg,7,0.847,0.84,0.83,0.7,0.91,0.97,21,26,0.412,0.035,5.3
+B_finetune,123,0.849,0.844,0.82,0.75,0.89,0.96,17,22,0.384,0.044,4.6
+C_finetune_reg,123,0.85,0.842,0.79,0.78,0.87,0.95,17,22,0.402,0.014,4.8
