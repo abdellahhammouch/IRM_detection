@@ -1,0 +1,84 @@
+seed: 42
+
+paths:
+  raw: data/raw
+  processed: data/processed
+  yolo: data/yolo
+  models: models
+  metrics: reports/metrics
+  figures: reports/figures
+  manifests: manifests
+
+data:
+  classes: [glioma, meningioma, notumor, pituitary]
+  image_size: 224
+  split: {train: 0.70, val: 0.15, test: 0.15}
+
+classifier:
+  backbone: MobileNetV2
+  batch_size: 32
+  dropout: 0.3
+  l2: 0.0001
+  lr: 0.001
+  epochs: 30
+
+yolo:
+  model: yolov8n.pt
+  imgsz: 640
+  epochs: 50
+  batch: 16
+  patience: 15
+  workers: 4
+  name: v8n_640
+  augment:          # pas de teinte ni de saturation (images en gris), pas de rotation (les boîtes grossiraient)
+    hsv_h: 0.0
+    hsv_s: 0.0
+    hsv_v: 0.2
+    degrees: 0.0
+    translate: 0.1
+    scale: 0.3
+    fliplr: 0.5
+    mosaic: 1.0
+
+duplicates:
+  ham_max: 20      # distance maximale entre empreintes visuelles (sur 256)
+  corr_min: 0.99   # ressemblance minimale, qui ignore la luminosité
+  mad_max: 2.0     # ou bien : écart moyen de pixels maximal
+
+
+data:
+  classes: [Glioma, Meningioma, No Tumor, Pituitary]
+  image_size: 224
+  split: {train: 0.70, val: 0.15, test: 0.15}
+
+preprocessing:
+  train_dedup: representative   # representative (un par groupe) | all (toutes les copies)
+  pad_mode: background          # background (couleur du fond) | black
+
+
+augmentation:
+  rotation_deg: 15
+  translation: 0.10
+  zoom: 0.15
+  contrast: 0.20
+  brightness: 0.15
+  degrade_prob: 0    # part des images du train qui reçoivent flou + baisse de résolution (0 = désactivé)
+  min_scale: 0.5       # taille minimale avant remontée : 50 % de 224 = 112 px
+  box_min_visible: 0.5   # une boîte est écartée si moins de 50 % de sa surface reste dans l'image
+
+
+finetune:
+  lr: 0.00001
+  epochs: 30
+experiments:
+  A_base:         {dropout: 0.3, l2: 0.0001, finetune_layers: 0}
+  B_finetune:     {dropout: 0.3, l2: 0.0001, finetune_layers: 30}
+  C_finetune_reg: {dropout: 0.5, l2: 0.001,  finetune_layers: 30}
+
+
+
+airflow:
+  epochs: 3        # entraînement léger : tête seule, 3 époques (D26 A)
+  min_f1: 0.6      # porte de qualité : l'évaluation échoue si le F1 macro (validation) est en dessous
+
+
