@@ -1,0 +1,100 @@
+{
+  "weights": "models/yolo_best.pt",
+  "split": "test",
+  "conf_seuil_comptage": 0.5,
+  "metriques_tout": [
+    {
+      "classe": "Glioma",
+      "précision": 0.911,
+      "rappel": 0.825,
+      "mAP50": 0.913,
+      "mAP50-95": 0.665
+    },
+    {
+      "classe": "Meningioma",
+      "précision": 0.976,
+      "rappel": 0.988,
+      "mAP50": 0.993,
+      "mAP50-95": 0.857
+    },
+    {
+      "classe": "Pituitary",
+      "précision": 0.884,
+      "rappel": 0.857,
+      "mAP50": 0.941,
+      "mAP50-95": 0.675
+    },
+    {
+      "classe": "toutes",
+      "précision": 0.924,
+      "rappel": 0.89,
+      "mAP50": 0.949,
+      "mAP50-95": 0.732
+    }
+  ],
+  "metriques_all_match": [
+    {
+      "classe": "Glioma",
+      "précision": 0.905,
+      "rappel": 0.811,
+      "mAP50": 0.897,
+      "mAP50-95": 0.648
+    },
+    {
+      "classe": "Meningioma",
+      "précision": 0.976,
+      "rappel": 0.98,
+      "mAP50": 0.993,
+      "mAP50-95": 0.86
+    },
+    {
+      "classe": "Pituitary",
+      "précision": 0.878,
+      "rappel": 0.911,
+      "mAP50": 0.951,
+      "mAP50-95": 0.696
+    },
+    {
+      "classe": "toutes",
+      "précision": 0.92,
+      "rappel": 0.901,
+      "mAP50": 0.947,
+      "mAP50-95": 0.734
+    }
+  ],
+  "comptage": [
+    {
+      "classe": "Glioma",
+      "TP": 170,
+      "FP": 22,
+      "manqués": 36,
+      "dont FP bon endroit mauvais type": 1,
+      "précision": 0.885,
+      "rappel": 0.825
+    },
+    {
+      "classe": "Meningioma",
+      "TP": 160,
+      "FP": 4,
+      "manqués": 2,
+      "dont FP bon endroit mauvais type": 1,
+      "précision": 0.976,
+      "rappel": 0.988
+    },
+    {
+      "classe": "Pituitary",
+      "TP": 177,
+      "FP": 26,
+      "manqués": 28,
+      "dont FP bon endroit mauvais type": 1,
+      "précision": 0.872,
+      "rappel": 0.863
+    }
+  ],
+  "no_tumor": {
+    "images_no_tumor": 54,
+    "avec_fausse_alarme": 6,
+    "part": 0.111,
+    "confiance_mediane_des_alarmes": 0.565
+  }
+}
