@@ -1,0 +1,100 @@
+{
+  "weights": "models/yolo_best.pt",
+  "split": "val",
+  "conf_seuil_comptage": 0.25,
+  "metriques_tout": [
+    {
+      "classe": "Glioma",
+      "précision": 0.9,
+      "rappel": 0.893,
+      "mAP50": 0.932,
+      "mAP50-95": 0.697
+    },
+    {
+      "classe": "Meningioma",
+      "précision": 0.94,
+      "rappel": 0.94,
+      "mAP50": 0.963,
+      "mAP50-95": 0.797
+    },
+    {
+      "classe": "Pituitary",
+      "précision": 0.89,
+      "rappel": 0.867,
+      "mAP50": 0.931,
+      "mAP50-95": 0.683
+    },
+    {
+      "classe": "toutes",
+      "précision": 0.91,
+      "rappel": 0.9,
+      "mAP50": 0.942,
+      "mAP50-95": 0.726
+    }
+  ],
+  "metriques_all_match": [
+    {
+      "classe": "Glioma",
+      "précision": 0.892,
+      "rappel": 0.848,
+      "mAP50": 0.928,
+      "mAP50-95": 0.697
+    },
+    {
+      "classe": "Meningioma",
+      "précision": 0.949,
+      "rappel": 0.926,
+      "mAP50": 0.961,
+      "mAP50-95": 0.788
+    },
+    {
+      "classe": "Pituitary",
+      "précision": 0.915,
+      "rappel": 0.934,
+      "mAP50": 0.96,
+      "mAP50-95": 0.723
+    },
+    {
+      "classe": "toutes",
+      "précision": 0.919,
+      "rappel": 0.903,
+      "mAP50": 0.95,
+      "mAP50-95": 0.736
+    }
+  ],
+  "comptage": [
+    {
+      "classe": "Glioma",
+      "TP": 184,
+      "FP": 38,
+      "manqués": 21,
+      "dont FP bon endroit mauvais type": 0,
+      "précision": 0.829,
+      "rappel": 0.898
+    },
+    {
+      "classe": "Meningioma",
+      "TP": 156,
+      "FP": 11,
+      "manqués": 10,
+      "dont FP bon endroit mauvais type": 1,
+      "précision": 0.934,
+      "rappel": 0.94
+    },
+    {
+      "classe": "Pituitary",
+      "TP": 185,
+      "FP": 36,
+      "manqués": 20,
+      "dont FP bon endroit mauvais type": 0,
+      "précision": 0.837,
+      "rappel": 0.902
+    }
+  ],
+  "no_tumor": {
+    "images_no_tumor": 54,
+    "avec_fausse_alarme": 8,
+    "part": 0.148,
+    "confiance_mediane_des_alarmes": 0.434
+  }
+}
