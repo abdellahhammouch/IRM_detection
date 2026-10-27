@@ -1,0 +1,6 @@
+{
+  "epochs_run": 3,
+  "best_val_loss": 0.6656566262245178,
+  "seconds": 63.6,
+  "model": "/opt/project/models/airflow_light.keras"
+}
