@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+data/
+runs/
+models/
+*.h5
+*.keras
+*.pt
+.env
+kaggle.json
+.vscode/
+*.log
+airflow/logs/
+mlruns/
