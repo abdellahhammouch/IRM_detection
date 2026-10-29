@@ -1,0 +1,38 @@
+# Airflow (pipeline) et Streamlit (application). Le projet entier est monté : code, manifestes, modèles, rapports.
+services:
+  airflow:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    image: irm-airflow
+    command: standalone
+    user: "${AIRFLOW_UID:-50000}:0"
+    ports:
+      - "8080:8080"
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      AIRFLOW__CORE__DAGS_FOLDER: /opt/project/dags
+      AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS: "true"   # démonstration locale : pas de mot de passe
+      HOME: /tmp
+      PYTHONUSERBASE: /home/airflow/.local
+      KERAS_HOME: /opt/project/models/.keras
+      MPLCONFIGDIR: /tmp/mpl
+      TF_CPP_MIN_LOG_LEVEL: "2"
+    volumes:
+      - ./:/opt/project
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    image: irm-app
+    ports:
+      - "8501:8501"
+    environment:
+      HOME: /tmp
+      YOLO_CONFIG_DIR: /tmp/yolo
+      MPLCONFIGDIR: /tmp/mpl
+      TF_CPP_MIN_LOG_LEVEL: "2"
+      STREAMLIT_BROWSER_GATHER_USAGE_STATS: "false"
+    volumes:
+      - ./:/opt/project:ro                 # lecture seule : l'application ne modifie rien

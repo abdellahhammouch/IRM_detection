@@ -1,0 +1,11 @@
+# Application Streamlit : inférence sur CPU (TensorFlow CPU pour le classifieur, PyTorch CPU pour YOLO).
+FROM python:3.12-slim
+RUN apt-get update && apt-get install -y --no-install-recommends libgl1 libglib2.0-0 && rm -rf /var/lib/apt/lists/*
+COPY requirements-app.txt /tmp/requirements-app.txt
+# PyTorch CPU d'abord : sinon ultralytics installerait la version GPU (plusieurs Go inutiles)
+RUN pip install --no-cache-dir torch==2.14.1 torchvision==0.29.1 --index-url https://download.pytorch.org/whl/cpu \
+ && pip install --no-cache-dir -r /tmp/requirements-app.txt
+WORKDIR /opt/project
+ENV PYTHONPATH=/opt/project
+EXPOSE 8501
+CMD ["streamlit", "run", "app/streamlit_app.py", "--server.address=0.0.0.0", "--server.port=8501"]

@@ -1,0 +1,9 @@
+.venv
+.git
+data
+models
+reports
+runs
+__pycache__
+*.pyc
+.ipynb_checkpoints

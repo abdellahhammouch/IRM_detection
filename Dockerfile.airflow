@@ -1,0 +1,6 @@
+# Image Airflow + environnement séparé « pipeline-venv » (TensorFlow CPU) pour exécuter src/pipeline.py.
+# Airflow et TensorFlow ne partagent pas leurs bibliothèques : pas de conflit de versions.
+FROM apache/airflow:3.3.2
+COPY requirements-pipeline.txt /tmp/requirements-pipeline.txt
+RUN python -m venv /opt/airflow/pipeline-venv \
+ && /opt/airflow/pipeline-venv/bin/pip install --no-cache-dir -r /tmp/requirements-pipeline.txt
